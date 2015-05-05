@@ -120,7 +120,7 @@ cfg_path_env()
 
 main()
 {
-#    install_packages_essentials
+     install_packages_essentials
      install_lamp_server
 #    install_packages
 #    setup_tftp_server
