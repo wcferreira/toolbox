@@ -1,0 +1,31 @@
+# Colocar função abaixo em .bashrc
+function proxypedro
+{
+    export http_proxy="http://10.40.0.140:3128"
+    export https_proxy="$http_proxy"
+}
+
+
+# No console executar os comandos abaixo
+ping www.google.com
+
+export http+proxy="http://200.185.141.207:8080"
+export http_proxy="http://200.185.141.207:8080"
+export https_proxy="http://200.185.141.207:8080"
+export ftp_proxy="http://200.185.141.207:8080"
+
+apt-get update
+export http_proxy="http://200.185.141.207:8080"
+export http_proxy='http://wagner.ferreira:!@ffibo.1123:200.185.141.207:8080'
+export http_proxy='https://wagner.ferreira:!@ffibo.1123:200.185.141.207:8080'
+export ftp_proxy='http://wagner.ferreira:!@ffibo.1123:200.185.141.207:8080'
+
+apt-get update
+sudo apt-get update
+export http_proxy='https://wagner.ferreira:!@ffibo.1123:200.185.141.207:8080'
+export http_proxy='http://wagner.ferreira:!@ffibo.1123:200.185.141.207:8080'
+
+export http_proxy="http://10.40.0.140:3128"
+export https_proxy="http://10.40.0.140:3128"
+export fttp_proxy="http://10.40.0.140:3128"
+
