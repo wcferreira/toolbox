@@ -17,7 +17,7 @@ PACKAGES_ESSENTIALS="build-essential gparted ssh vim aptitude inotail subversion
                      libncurses5-dev libtool dpkg gparted meld tar gzip gnome-tweak-tools
                      openjdk-8-jdk idle ruby2.1 cups-pdf libsdl1.2debian libcups2 samba 
                      samba-common cifs-utils wine vlc unity-tweak-tool ubuntu-restricted-extras 
-                     cowsay fortunes-br openssh-client openssh-server"
+                     cowsay fortunes-br openssh-client openssh-server tree"
 
 LAMP="apache2 mysql-server php5-mysql mysql-workbench php5 libapache2-mod-php5 php5-mcrypt"
  
