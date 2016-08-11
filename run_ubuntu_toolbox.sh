@@ -2,23 +2,23 @@
 
 USER=$(whoami)
 
-PACKAGES="build-essential gcc automake bison m4 texinfo gettext flex zlib1g-dev
-          libncurses5 libncurses5-dev libtool dpkg gparted meld tar gzip
-          qemu qemu-common qemu-arm-static qemu-kvm-extras qemu-kvm-extras-static
-          vim gedit minicom file squashfs-tools coreutils mtd-utils diffutils ddd
-          patch xinetd tftp tftpd nfs-common nfs-kernel-server subversion
-          uboot-mkimage git-core gawk"
+PACKAGES_EMBEDDED_LINUX="automake bison coreutils ddd diffutils file flex gcc 
+                         gettext m4 mtd-utils nfs-common nfs-kernel-server
+                         patch qemu qemu-common squashfs-tools texinfo tftp tftpd
+                         uboot-mkimage gawk xinetd zlib1g-dev "
 
 PACKAGES_64="ia32-libs"
 
-PACKAGES_ESSENTIALS="build-essential gparted ssh vim aptitude inotail subversion git-core 
-                     picocom synergy kate wine gdb unetbootin rar unrar p7zip-full 
-		     k3b xchm minicom nano strace ltrace gtkterm libncurses5 
-                     libncurses5-dev libtool dpkg gparted meld tar gzip gnome-tweak-tools
-                     openjdk-8-jdk idle ruby2.1 cups-pdf libsdl1.2debian libcups2 samba 
-                     samba-common cifs-utils wine vlc unity-tweak-tool ubuntu-restricted-extras 
-                     cowsay fortunes-br openssh-client openssh-server tree gtkterm sl mtd-tools 
-		     mkcramfs nmap arp-scan sysfsutils ddd screenfetch curl usbview"
+PACKAGES_ESSENTIALS="aptitude ascii build-essential codeblocks cowsay dia doxygen
+                     dpkg evtest fortune-mod gcc-multilib gdb geany git-core gitg 
+                     gitk git-svn gksu gparted gtkterm gzip htop i2c-tools incron 
+                     inotail inotify-tools k3b kate kdevelop libc6-dev libc6-i386 
+                     libcups2 libncurses5 libncurses5-dev libssl-dev libtool ltrace 
+                     meld mercurial minicom nano openjdk-7-jdk openssh-client 
+                     openssh-server p7zip-full picocom rand rar samba samba-common 
+                     ssh strace subversion synergy sysstat tar tree unetbootin unrar 
+                     valgrind vim wine wireshark xchm"
+
 
 LAMP="apache2 mysql-server php5-mysql mysql-workbench php5 libapache2-mod-php5 php5-mcrypt"
  
@@ -61,7 +61,7 @@ install_packages()
 {
     update_aptget
     log "Installing packages..."
-    for pkg in `echo $PACKAGES`; do
+    for pkg in `echo $PACKAGES_EMBEDDED_LINUX`; do
         log "Installing [$pkg]..."
         run_safe sudo -E apt-get install $pkg --assume-yes
     done
@@ -120,10 +120,58 @@ cfg_path_env()
     fi
 }
 
+# Mosquitto - An Open Source MQTT Broker
+install_mosquitto_broker()
+{
+    log "Installing mosquitto broker..."
+    sudo -E apt-add-repository ppa:mosquitto-dev/mosquitto-ppa
+    sudo -E apt-get update
+    sudo -E apt-get install mosquitto mosquitto-dev mosquitto-clients mosquitto-dbg
+}
+
+# Sublime Text Editor
+install_sublime_text_editor()
+{
+    log "Installing sublime text editor..."
+    sudo -E add-apt-repository -y ppa:webupd8team/sublime-text-3
+    sudo -E apt-get update 
+    sudo -E apt-get install -y sublime-text-installer
+}
+
+# Nice tool to get GNU/Linux version
+install_screenfetch()
+{
+    sudo -E apt-get install screenfetch
+}
+
+install_sqlite()
+{
+    sudo -E apt-get install sqlite3
+    sudo -E apt-get install libsqlite3-dev
+    sudo -E apt-get install sqlitebrowser
+}
+
+install_python()
+{
+    sudo -E apt-get install python3.5-dev 
+    sudo -E apt-get install python3.5-doc
+    sudo -E apt-get install python-pip 
+    sudo -E apt-get install python-dev 
+    sudo -E apt-get install idle 
+}
+
+install_teamviwer()
+{
+    sudo -E apt-get install teamviewer:i386
+}
+
 main()
 {
      install_packages_essentials
-     install_lamp_server
+#    install_mosquitto_broker
+#    install_sublime_text_editor
+#    install_screenfetch()
+#    install_lamp_server
 #    install_packages
 #    setup_tftp_server
 #    setup_nfs_server
