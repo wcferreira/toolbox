@@ -10,12 +10,12 @@ PACKAGES_EMBEDDED_LINUX="automake bison coreutils ddd diffutils file flex gcc
 PACKAGES_64="ia32-libs"
 
 PACKAGES_ESSENTIALS="aptitude ascii build-essential codeblocks cowsay dia doxygen
-                     dpkg evtest fortune-mod gcc-multilib gdb geany git-core gitg 
+                     dpkg evtest fortune-mod gcc gcc-multilib gdb geany git-core gitg 
                      gitk git-svn gksu gparted gtkterm gzip htop i2c-tools incron 
                      inotail inotify-tools k3b kate kdevelop libc6-dev libc6-i386 
                      libcups2 libncurses5 libncurses5-dev libssl-dev libtool ltrace 
                      meld mercurial minicom nano openjdk-7-jdk openssh-client 
-                     openssh-server p7zip-full picocom rand rar samba samba-common 
+                     openssh-server p7zip-full picocom rand rar samba samba-common sl 
                      ssh strace subversion synergy sysstat tar tree unetbootin unrar 
                      valgrind vim wine wireshark xchm"
 
